@@ -43,7 +43,6 @@ class Game {
       this.timerStatus.textContent--;
       
       if(this.timerStatus.textContent <= 0) {
-        clearInterval(this.intervalTimer);
         this.fail();
       }
     }
@@ -64,7 +63,6 @@ class Game {
       this.reset();
     }
 
-    clearInterval(this.intervalTimer);
     this.setNewWord();
   }
 
@@ -74,7 +72,6 @@ class Game {
       this.reset();
     }
     
-    clearInterval(this.intervalTimer);
     this.setNewWord();
   }
 
@@ -84,6 +81,8 @@ class Game {
     this.renderWord(word);
 
     this.timerStatus.textContent = this.wordElement.textContent.length;
+
+    clearInterval(this.intervalTimer);
 
     this.intervalTimer = setInterval(this.timer, 1000);
   }
