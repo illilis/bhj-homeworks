@@ -55,6 +55,8 @@ function addToCart(product) {
   cartProducts.appendChild(cartProduct);
 
   cart.style.display = "block";
+
+  deleteProductFromCart();
 }
 
 function checkCart(product) {
@@ -65,18 +67,20 @@ function checkCart(product) {
   return productInCartId;
 }
 
-// function deleteProductFromCart() {
-//   cartProducts.forEach(element => {
-//     element.addEventListener("click", (element) => {
-//       const cartProductDelete = event.target.closest("cart__product-delete");
-//       if (cartProductDelete) {
-//         const cartProduct = cartProductDelete.closest("cart__product");
-//         cartProduct.remove();
-//       }
-      
-//       if (cartProducts.innerText === "") {
-//         cart.style.display = "none";
-//       }
-//     });
-//   });
-// }
+function deleteProductFromCart() {
+  const productsInCart = cartProducts.querySelectorAll(".cart__product");
+  console.log(productsInCart);
+
+  productsInCart.forEach(element => {
+    const cartProductDelete = element.querySelector(".cart__product-delete");
+    console.log(cartProductDelete);
+    cartProductDelete.addEventListener("click", () => {
+        const cartProduct = cartProductDelete.closest(".cart__product");
+        cartProduct.remove();
+
+        if (cartProducts.innerText === "") {
+          cart.style.display = "none";
+        }
+      });
+  })
+};
