@@ -24,15 +24,8 @@ function addTask () {
   tasksInput.value = "";
 }
 
-tasksInput.addEventListener("keyup", event => {
+tasksAdd.addEventListener("click", (event) => {
   event.preventDefault();
-
-  if (event.code === "Enter" && tasksInput.value.trim() !== "") {
-    addTask();
-  }
-});
-
-tasksAdd.addEventListener("click", () => {
   if (tasksInput.value.trim() !== "") {
     addTask();
   }

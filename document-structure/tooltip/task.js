@@ -16,14 +16,6 @@ hasTooltip.forEach(element => {
     tooltip.style.left = `${left}px`;
     tooltip.style.top = `${bottom}px`;
 
-    const tooltipAll = document.querySelectorAll(".tooltip");
-
-    tooltipAll.forEach(el => {
-      if (el.classList.contains("tooltip_active")) {
-        el.classList.remove("tooltip_active");
-      }
-
-      tooltip.classList.add("tooltip_active");  
-    })
-  })
-})
+    tooltip.classList.toggle("tooltip_active");
+  });
+});
